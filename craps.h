@@ -1,7 +1,3 @@
-//
-// Created by Arana Fireheart on 2/2/20.
-//
-
 #ifndef CRAPSSTARTER_CRAPS_H
 #define CRAPSSTARTER_CRAPS_H
 
@@ -16,22 +12,24 @@ public:
     CrapsMainWindow(QMainWindow *parent = nullptr);
     void printStringRep();
     void updateUI();
+    void checkBankValue();
+    void rollDice();
+    void winCheck();
 
 private:
     Die die1, die2;
     bool firstRoll = true;
-    int winsCount;
-    float currentBankValue;
-    int currentBet;
+    int winsCount = 0;
+    int lossesCount = 0;
+    int currentBankValue;
+    float currentBet;
+    int rollValue;
     int previousRoll;
-    float payouts[];
+    int turn = 1;
+    std::string status;
+    std::string rollingFor;
 
-    std::tuple<bool, float> playFirstRoll(int rollValue, float currentBank, float currentBet);
-    std::tuple<bool, float> playSecondRoll(int rollValue, int previousRoll, float currentBank, float currentBet);
-    float processWin(int rollValue, int rollNumber, float currentBank, float currentBet);
-    float processLoss(int rollValue, int rollNumber, float currentBank, float currentBet);
-    float calculateCurrentBank(int rollValue, int rollNumber, float currentBank, float currentBet, bool wonBet);
-    float processBet(float currentBank);
+
 
 public Q_SLOTS:
     void rollButtonClickedHandler();

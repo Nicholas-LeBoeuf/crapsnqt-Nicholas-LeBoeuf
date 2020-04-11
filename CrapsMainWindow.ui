@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>968</width>
-    <height>608</height>
+    <width>653</width>
+    <height>490</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,6 +23,13 @@
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
            <widget class="QLabel" name="label">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="text">
              <string>Wins:</string>
             </property>
@@ -30,6 +37,14 @@
           </item>
           <item>
            <widget class="QLabel" name="winsCountUI">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+              <weight>75</weight>
+              <italic>true</italic>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="text">
              <string>0</string>
             </property>
@@ -54,6 +69,11 @@
          <layout class="QGridLayout" name="gridLayout">
           <item row="0" column="0">
            <widget class="QLabel" name="label_3">
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>Current Bank</string>
             </property>
@@ -61,6 +81,11 @@
           </item>
           <item row="0" column="1">
            <widget class="QLabel" name="currentBankValueUI">
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>0</string>
             </property>
@@ -68,6 +93,11 @@
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="label_4">
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>Current Bet</string>
             </property>
@@ -75,11 +105,16 @@
           </item>
           <item row="1" column="1">
            <widget class="QSpinBox" name="currentBetUI">
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
             <property name="minimum">
              <number>10</number>
             </property>
             <property name="maximum">
-             <number>1000</number>
+             <number>100</number>
             </property>
             <property name="singleStep">
              <number>20</number>
@@ -105,6 +140,13 @@
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
            <widget class="QLabel" name="label_5">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="text">
              <string>Losses:</string>
             </property>
@@ -112,6 +154,14 @@
           </item>
           <item>
            <widget class="QLabel" name="lossesCountUI">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+              <weight>75</weight>
+              <italic>true</italic>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="text">
              <string>0</string>
             </property>
@@ -137,7 +187,7 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
-         <spacer name="horizontalSpacer_4">
+         <spacer name="horizontalSpacer_3">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -160,7 +210,7 @@
          </widget>
         </item>
         <item>
-         <spacer name="horizontalSpacer_3">
+         <spacer name="horizontalSpacer_4">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -198,7 +248,7 @@
        </layout>
       </item>
       <item>
-       <spacer name="verticalSpacer">
+       <spacer name="verticalSpacer_3">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
@@ -229,7 +279,11 @@
          <widget class="QLabel" name="rollingForUI">
           <property name="font">
            <font>
-            <pointsize>20</pointsize>
+            <pointsize>25</pointsize>
+            <weight>75</weight>
+            <italic>false</italic>
+            <bold>true</bold>
+            <underline>true</underline>
            </font>
           </property>
           <property name="text">
@@ -256,7 +310,13 @@
        </layout>
       </item>
       <item>
-       <widget class="QLabel" name="ststusUI">
+       <widget class="QLabel" name="statusUI">
+        <property name="font">
+         <font>
+          <pointsize>16</pointsize>
+          <italic>true</italic>
+         </font>
+        </property>
         <property name="text">
          <string>TextLabel</string>
         </property>
@@ -266,7 +326,7 @@
        </widget>
       </item>
       <item>
-       <spacer name="verticalSpacer_3">
+       <spacer name="verticalSpacer_2">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
@@ -295,8 +355,17 @@
         </item>
         <item>
          <widget class="QPushButton" name="rollButton">
+          <property name="font">
+           <font>
+            <pointsize>15</pointsize>
+            <weight>75</weight>
+            <italic>true</italic>
+            <bold>true</bold>
+            <underline>true</underline>
+           </font>
+          </property>
           <property name="text">
-           <string>PushButton</string>
+           <string>Roll</string>
           </property>
          </widget>
         </item>
@@ -316,7 +385,7 @@
        </layout>
       </item>
       <item>
-       <spacer name="verticalSpacer_2">
+       <spacer name="verticalSpacer">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
@@ -337,7 +406,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>968</width>
+     <width>653</width>
      <height>25</height>
     </rect>
    </property>
