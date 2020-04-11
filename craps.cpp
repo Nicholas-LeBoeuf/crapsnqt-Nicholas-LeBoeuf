@@ -35,7 +35,7 @@ void CrapsMainWindow::updateUI() {
     std::string die2ImageName = ":/dieImages/" + std::to_string(die2.getValue());
     die1UI->setPixmap(QPixmap(QString::fromStdString(die1ImageName)));
     die2UI->setPixmap(QPixmap(QString::fromStdString(die2ImageName)));
-
+//   inputs strings onto GUI
     currentBankValueUI->setText(QString::fromStdString(std::to_string(currentBankValue)));
     winsCountUI->setText(QString::fromStdString(std::to_string(winsCount)));
     lossesCountUI->setText(QString::fromStdString(std::to_string(lossesCount)));
@@ -47,13 +47,14 @@ void CrapsMainWindow::updateUI() {
 void CrapsMainWindow::rollButtonClickedHandler() {
 //void Craps::rollButtonClickedHandler() {
     printf("Roll button clicked\n");
-
+//  if its the first roll, this part runs
     if (turn == 1) {
         rollingFor = "";
         status = "";
         updateUI();
         checkBankValue();
     }
+//  if its the second roll, this part runs
     else if (turn == 2) {
         status = "";
         updateUI();
@@ -66,11 +67,13 @@ void CrapsMainWindow::checkBankValue() {
     bool betValid = false;
 
     do {
+        //  if you're betting more than you have in your bank, the game won't run
         if (currentBankValue - currentBetUI->value() < 0) {
             status = "You have insufficient funds in your bank to bet that amount!";
             betValid = false;
         }
         else {
+            //  once your bet is validated, the game will run
             betValid = true;
             status = ("You bet $" + std::to_string(currentBetUI->value()));
             currentBankValue -= currentBetUI->value();
@@ -81,6 +84,7 @@ void CrapsMainWindow::checkBankValue() {
 }
 
 void CrapsMainWindow::rollDice() {
+    //  rolls dice
     die1.roll();
     die2.roll();
     printStringRep();
@@ -88,18 +92,22 @@ void CrapsMainWindow::rollDice() {
 }
 
 void CrapsMainWindow::winCheck() {
+    //this if statement runs if it is the first roll
     if (turn == 1) {
         rollValue = die1.getValue() + die2.getValue();
 
+        //if you get a 2, 3, or 12 you automatically lose
         if (rollValue == 2 || rollValue == 3 || rollValue == 12) {
             status = "You rolled a " + std::to_string(rollValue) + " which means you lost on the first roll!";
             lossesCount += 1;
             updateUI();
+        //if you get a 7 or 11 you automatically win
         } else if (rollValue == 7 || rollValue == 11) {
             status = "You rolled a " + std::to_string(rollValue) + " which means you won on the first roll!";
             currentBankValue += currentBetUI->value();
             winsCount += 1;
             updateUI();
+        //you have to roll again and match the number you get if you get any of these numbers
         } else if (rollValue == 4 || rollValue == 5 || rollValue == 6 || rollValue == 8 || rollValue == 9 ||
                    rollValue == 10) {
             status = "You rolled a " + std::to_string(rollValue) + " which means you get to roll again.";
@@ -109,6 +117,7 @@ void CrapsMainWindow::winCheck() {
             updateUI();
         }
     }
+    //this if statement runs if it is the second roll
     else if (turn == 2) {
         rollValue = die1.getValue() + die2.getValue();
 
@@ -118,6 +127,7 @@ void CrapsMainWindow::winCheck() {
             turn = 1;
             winsCount += 1;
 
+            //  this group of if statements looks for what the user rolled to see what the win ratio is. and it is added to the bank
             if (rollValue == 4)
                 currentBankValue += (currentBetUI->value() * 2);
             else if (rollValue == 5)
